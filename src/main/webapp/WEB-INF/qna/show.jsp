@@ -99,7 +99,7 @@
                     <a class="link-modify-article" href="/api/qna/updateAnswer/${article.id}">수정</a>
                 </li>
                 <li>
-                    <form class="delete-answer-form" action="/api/questions/${article.id}/answers/{4}">
+                    <form class="delete-answer-form" action="/qna/${article.id}/replies/{4}">
                         <button type="submit" class="delete-answer-button">삭제</button>
                     </form>
                 </li>
@@ -162,6 +162,8 @@
 
 
     $(".submit-write button[type=submit]").click(addAnswer);
+    $(".qna-comment-slipp-articles").on("click", ".delete-answer-form button[type='submit']", deleteAnswer);
+
 
     function addAnswer(e) {
         e.preventDefault();
@@ -204,7 +206,6 @@
         return parseInt(countText, 10) || 0;
     }
 
-    $(".delete-answer-form button[type='submit']").click(deleteAnswer);
 
     function deleteAnswer(e) {
         e.preventDefault();
